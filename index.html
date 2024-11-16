@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="lockaway.css">
+  <link rel="stylesheet" href="mobile.css">
+
+  <title>Välkommen till LockAway</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <!-- Top Banner -->
+  <div class="top-banner" id="top-banner">
+    <div class="company-name"><a href="https://lockaway.se">LockAway</a></div>
+    <div class=" menu">
+      <a class="button" href="#Om Oss">Om Oss</a>
+      <a class="button" href="#contact">Kontakt</a>
+    </div>
+  </div>
+
+  <!-- Video Section -->
+  <div id="landing">
+    <div class="videosection">
+      <video autoplay muted loop style="width:100%">
+        <source src=" media/bg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Roll-Out Text -->
+      <div class="text-overlay">
+        <h1>Keep it safe,<br>Lock it Away!</h1>
+        <span class="content">
+          Ta med dig allt till stranden, men lämna oron hemma!
+        </span><br>
+
+        <div class="button fade-in">
+          <a id="skap" href="#Om Oss">
+            Hyr ett skåp
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content-section">
+      <div class="text">
+        <div>
+          <h2 style="font-size: medium;">OM VÅRAT FÖRETAG</h2>
+          <h1>
+            Vi bidrar med en säker plats att förvara dina värdesaker
+          </h1>
+          <p>
+            Personer i alla åldrar som befinner sig på olika offentliga badplatser och stränder behöver en säker plats
+            att
+            låsa in sina värdesaker på. Vår produkt utesluter ett stressmoment och låter kunden fokusera på sin egen
+            njutning.
+          </p>
+        </div>
+      </div>
+      <div class="image">
+        <img src="media/strand.webp" alt="strand">
+      </div>
+    </div>
+  </div>
+
+  <div id="search" class="content-section hide">
+    <div class="text cities">
+      <div>
+        <h1>
+          Hitta Ditt Skåp
+        </h1>
+        <div class="search-container">
+          <input type="text" id="citySearch" placeholder="Sök efter ett skåp nära dig">
+        </div>
+        <ul id="cityList">
+          <li>Brokind, Brokindsbadet</li>
+          <li>Linköping, Strandbadet</li>
+          <li>Linköping, Sturefors</li>
+          <li>Linköping, Bankekind</li>
+          <li>Linköping, Hjulsbro</li>
+          <li>Linköping, Sandvik</li>
+          <li>Norrköping, Ågelsjön</li>
+          <li>Norrköping, Ensjön</li>
+          <li>Norrköping, Kvarsebobadet</li>
+          <li>Norrköping, Sörsjön</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="padding-top: 8%;" id="map"><iframe
+        src="https://www.google.com/maps/embed/v1/place?q=Linköping+Sverige&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+    </div>
+
+    <div id="1" class="wrapper hide">
+      <!-- Row 1 -->
+      <div class="flex-item small">1</div>
+      <div class="flex-item medium">2</div>
+      <div class="flex-item small">3</div>
+      <!-- Row 2 -->
+      <div class="flex-item small">4</div>
+      <div class="flex-item small">5</div>
+      <div class="flex-item medium">6</div>
+      <!-- Row 3 -->
+      <div class="flex-item large">7</div>
+      <div class="flex-item small">8</div>
+      <div class="flex-item small">9</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>LockAway AB</p>
+  </footer>
+
+  <script>
+    // Select the randomize button and all flex items
+    const flexItems = document.querySelectorAll('.flex-item');
+
+    // Function to randomly assign "free" or "taken" state
+    function randomizeStates() {
+      console.log("adsf")
+
+      flexItems.forEach(item => {
+        const isTaken = Math.random() < 0.5; // 50% chance
+        if (isTaken) {
+          item.classList.add('taken');
+          //item.textContent = 'Taken'; // Update text content
+        } else {
+          item.classList.remove('taken');
+          //item.textContent = 'Free'; // Update text content
+        }
+      });
+    }
+
+    const top_banner = document.getElementById('top-banner');
+
+    // Function to toggle top banner visibility based on scroll position
+    const toggleTopBanner = () => {
+      if (window.scrollY === 0) {
+        top_banner.classList.remove('hidden');
+      } else {
+        top_banner.classList.add('hidden');
+      }
+    };
+
+    // Check scroll position on page load
+    window.addEventListener('load', toggleTopBanner);
+
+    // Toggle banner on scroll
+    window.addEventListener('scroll', toggleTopBanner);
+
+    // Select the search input and city list
+    const searchInput = document.getElementById('citySearch');
+    const cityList = document.getElementById('cityList');
+    const map = document.getElementById('map');
+
+    const skap1 = document.getElementById('1');
+    const rando = document.getElementById('rand');
+
+
+    // Add event listener for input
+    searchInput.addEventListener('input', () => {
+      const filter = searchInput.value.toLowerCase();
+      const cities = cityList.getElementsByTagName('li');
+
+      // Loop through the list and filter items
+      Array.from(cities).forEach(city => {
+        const text = city.textContent.toLowerCase();
+        if (text.includes(filter)) {
+          city.style.display = ''; // Show the city
+        } else {
+          city.style.display = 'none'; // Hide the city
+        }
+      });
+    });
+
+    // Add event listener for selecting or deselecting a city
+    cityList.addEventListener('click', (event) => {
+      const clickedCity = event.target;
+
+      // Ensure only list items are clickable
+      if (clickedCity.tagName === 'LI') {
+        // Check if the clicked city is already selected
+        if (clickedCity.classList.contains('selected')) {
+          // If selected, deselect it
+          clickedCity.classList.remove('selected');
+          map.classList.remove('hide');
+          skap1.classList.add('hide');
+
+        } else {
+          // Otherwise, deselect any other selected city
+          Array.from(cityList.getElementsByTagName('li')).forEach(city => {
+            city.classList.remove('selected');
+          });
+
+          // Select the clicked city
+          clickedCity.classList.add('selected');
+          map.classList.add('hide');
+          skap1.classList.remove('hide');
+          //rando.classList.remove('hide');
+          randomizeStates()
+        }
+      }
+    });
+
+    document.getElementById('skap').addEventListener('click', function () {
+      const videoSection = document.getElementById('landing');
+      videoSection.classList.add('hide');
+
+      const search = document.getElementById('search');
+      search.classList.remove('hide');
+
+    });
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .content-section {
+    display: block;
+    padding-top: 2px;
+    min-height: 500px;
+  }
+
+  .content-section .image img {
+    max-width: 100%;
+    border-radius: 8px;
+    min-height: 0px;
+  }
+
+  .content-section .text p {
+    padding-bottom: 30px;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  #map {
+    display: none
+  }
+
+  .wrapper {
+    width: 90%;
+    height: 200px;
+  }
+
+  .cities {
+    max-width: 100%
+  }
+
+  .menu {
+    margin-right: -25px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white
+  }
+
+  .menu a {
+    font-size: 10px;
+    margin-bottom: 7px;
+    display: inline-block;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+    margin-left: 5px;
+    text-transform: uppercase;
+  }
+
+  .button a {
+    font-size: 12px;
+    text-shadow: 0 0 BLACK;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+    text-transform: uppercase;
+    margin-top: 15px;
+  }
+
+  .text-overlay {
+    top: 10%;
+    /* Adjust position for smaller screens */
+    left: 10%;
+    /* Center it more for smaller screens */
+    font-size: 2rem;
+    /* Reduce font size for smaller screens */
+    text-align: center;
+    /* Center the text */
+    white-space: normal;
+    /* Allow text to wrap if needed */
+  }
+
+  .text-overlay h1 {
+    font-size: 1.5rem;
+    /* Reduce heading size further */
+  }
+}
+
+/* Extra-small screens (e.g., phones) */
+@media (max-width: 480px) {
+  .company-name {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .text-overlay {
+    top: 8%;
+    left: 5%;
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .text-overlay .content {
+    font-size: 10px;
+  }
+
+  .text-overlay h1 {
+    font-size: 1.2rem;
+    /* Even smaller font size */
+  }
+}
