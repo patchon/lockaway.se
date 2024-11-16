@@ -156,6 +156,11 @@ footer {
   animation: roll-out 2s ease forwards;
 }
 
+a {
+  text-decoration: none;
+  color: white
+}
+
 .text-overlay h1 {
   margin: 0;
   line-height: 1.2;
@@ -317,8 +322,9 @@ ul li.selected {
 .hide {
   display: none;
 }
+
 .cities {
-  max-width:40%
+  max-width: 40%
 }
 
 .flex-item.taken {
