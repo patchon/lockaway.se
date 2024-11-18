@@ -18,7 +18,7 @@ body {
   background-color: #f4f4f4;
   min-height: 50vh;
   min-height: 800px;
-  background: #f7eee3;
+  background: #ffffff;
 }
 
 .content-section .text {
@@ -242,7 +242,7 @@ ul li.selected {
 }
 
 .text-overlay .content {
-  color: #ffd8a6;
+  color: #ffffff;
   font-style: italic;
   font-size: 30px;
 }
