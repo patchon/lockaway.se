@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="lockaway.css">
   <link rel="stylesheet" href="mobile.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <title>Välkommen till LockAway</title>
   <style>
@@ -40,7 +41,7 @@
         </span><br>
 
         <div class="button fade-in">
-          <a id="skap" href="#Om Oss">
+          <a style="font-weight: normal;" id="next" href="#Om Oss">
             Hyr ett skåp
           </a>
         </div>
@@ -80,16 +81,16 @@
           <input type="text" id="citySearch" placeholder="Sök efter ett skåp nära dig">
         </div>
         <ul id="cityList">
-          <li>Brokind, Brokindsbadet</li>
-          <li>Linköping, Strandbadet</li>
-          <li>Linköping, Sturefors</li>
-          <li>Linköping, Bankekind</li>
-          <li>Linköping, Hjulsbro</li>
-          <li>Linköping, Sandvik</li>
-          <li>Norrköping, Ågelsjön</li>
-          <li>Norrköping, Ensjön</li>
-          <li>Norrköping, Kvarsebobadet</li>
-          <li>Norrköping, Sörsjön</li>
+          <li id="c1">Brokind, Brokindsbadet</li>
+          <li id="c2">Linköping, Strandbadet</li>
+          <li id="c3">Linköping, Sturefors</li>
+          <li id="c4">Linköping, Bankekind</li>
+          <li id="c5">Linköping, Hjulsbro</li>
+          <li id="c6">Linköping, Sandvik</li>
+          <li id="c7">Norrköping, Ågelsjön</li>
+          <li id="c8">Norrköping, Ensjön</li>
+          <li id="c9">Norrköping, Kvarsebobadet</li>
+          <li id="c10">Norrköping, Sörsjön</li>
         </ul>
       </div>
     </div>
@@ -98,19 +99,19 @@
         src="https://www.google.com/maps/embed/v1/place?q=Linköping+Sverige&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
     </div>
 
-    <div id="1" class="wrapper hide">
+    <div id="skap" class="wrapper hide">
       <!-- Row 1 -->
-      <div class="flex-item small">1</div>
-      <div class="flex-item medium">2</div>
-      <div class="flex-item small">3</div>
+      <div id="1" class="flex-item small">1</div>
+      <div id="2" class="flex-item medium">2</div>
+      <div id="3" class="flex-item small">3</div>
       <!-- Row 2 -->
-      <div class="flex-item small">4</div>
-      <div class="flex-item small">5</div>
-      <div class="flex-item medium">6</div>
+      <div id="4" class="flex-item small">4</div>
+      <div id="5" class="flex-item small">5</div>
+      <div id="6" class="flex-item medium">6</div>
       <!-- Row 3 -->
-      <div class="flex-item large">7</div>
-      <div class="flex-item small">8</div>
-      <div class="flex-item small">9</div>
+      <div id="7" class="flex-item large">7</div>
+      <div id="8" class="flex-item small">8</div>
+      <div id="9" class="flex-item small">9</div>
     </div>
   </div>
 
@@ -120,24 +121,103 @@
   </footer>
 
   <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+      randomizeStates();
+    }, false);
+
     // Select the randomize button and all flex items
     const flexItems = document.querySelectorAll('.flex-item');
 
+    let skap_states = [];
+
+
     // Function to randomly assign "free" or "taken" state
     function randomizeStates() {
-      console.log("adsf")
+      for (let i = 0; i <= 10; i++) {
+        str=""
+        for (let i = 0; i < 9; i++) {
+          if (Math.random() < 0.5) {
+            str+="1,"
+          } else {
+            str+="0,"
+          }
+        }
+        str = str.slice(0, -1);
+
+        skap_states[i] = str
+      }
+      console.log(skap_states)
+
+    }
+
+    function displaySkap(city) {
+
+      city = city.substring(1);
+      arr = skap_states[city].split(',');
+      console.log(city)
 
       flexItems.forEach(item => {
-        const isTaken = Math.random() < 0.5; // 50% chance
-        if (isTaken) {
+        console.log(arr[item.id-1])
+
+        if (arr[item.id-1] == 1){
+          console.log("green")
           item.classList.add('taken');
-          //item.textContent = 'Taken'; // Update text content
         } else {
+          console.log("red")
+
           item.classList.remove('taken');
-          //item.textContent = 'Free'; // Update text content
         }
       });
     }
+
+    function setskapstate(skapId){
+      city = document.querySelector('li.selected');
+      console.log(city.id)
+      console.log(skapId)
+      id = skapId-1;
+
+      city = city.id.substring(1);
+      arr = skap_states[city].split(',');
+      console.log("--"+arr[id])
+
+      if (arr[id] == 0){
+        arr[id] = 1
+        console.log("skap was green")
+      }else{
+        arr[id] = 0
+        console.log("skap was red")
+      }
+
+      //if (arr[id] == 1){
+
+      //}
+
+     // arr[id] = arr[id] === 0 ? 1 : 0;
+
+      console.log("before => ",skap_states[city])
+
+      str = arr.join(",")
+      console.log("after  => ",str)
+
+      skap_states[city] = str
+      displaySkap("c"+city)
+    }
+ //     console.log(skap_states)
+
+//      flexItems.forEach(item => {
+//        const isTaken = Math.random() < 0.5; // 50% chance
+//        if (isTaken) {
+//          item.classList.add('taken');
+//          //item.textContent = 'Taken'; // Update text content
+//        } else {
+//          item.classList.remove('taken');
+//          //item.textContent = 'Free'; // Update text content
+//        }
+//      });
+  //  }
+
+
 
     const top_banner = document.getElementById('top-banner');
 
@@ -161,7 +241,7 @@
     const cityList = document.getElementById('cityList');
     const map = document.getElementById('map');
 
-    const skap1 = document.getElementById('1');
+    const skap = document.getElementById('skap');
     const rando = document.getElementById('rand');
 
 
@@ -192,7 +272,7 @@
           // If selected, deselect it
           clickedCity.classList.remove('selected');
           map.classList.remove('hide');
-          skap1.classList.add('hide');
+          skap.classList.add('hide');
 
         } else {
           // Otherwise, deselect any other selected city
@@ -203,12 +283,31 @@
           // Select the clicked city
           clickedCity.classList.add('selected');
           map.classList.add('hide');
-          skap1.classList.remove('hide');
+          skap.classList.remove('hide');
           //rando.classList.remove('hide');
-          randomizeStates()
+          //randomizeStates()
+          //console.log(event.target.id)
+          displaySkap(event.target.id)
         }
       }
     });
+
+    // Add an event listener to the parent container
+    skap.addEventListener('click', (event) => {
+
+      if (event.target.classList.contains('taken')){
+        return
+      }
+      handlepay(event.target.id)
+      //setskapstate(event.target.id)
+    });
+
+        // Add an event listener to the parent container
+        document.getElementById('next').addEventListener('click', function () {
+          document.getElementById('landing').classList.add('hide');
+          document.getElementById('search').classList.remove('hide');;
+
+        });
 
     document.getElementById('skap').addEventListener('click', function () {
       const videoSection = document.getElementById('landing');
@@ -218,6 +317,69 @@
       search.classList.remove('hide');
 
     });
+
+    function handlepay(box){
+
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-danger"
+        },
+        buttonsStyling: true
+      });
+
+      swalWithBootstrapButtons.fire({
+        title: "Betala för lucka"+box,
+        icon: "question",
+        iconHtml: "<img src=media/swish.png style='scale:15%''>",
+        showCancelButton: true,
+        confirmButtonText: "Betala",
+        cancelButtonText: "Avbryt",
+        reverseButtons: true,
+        html: `
+          <label for="phone">Telefonnummer</label> <input class="input-tel" type=number id="phone">
+        `,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire({
+            title: "",
+            html: "<div style='font-weight: bold;'>Väntar på godkännande från BankID</div><span style='display: none; '>Användaren har godkänt.</span>",
+            timer: 112000,
+            timerProgressBar: true,
+            iconHtml: "<img src=media/bankid.svg style='width: 100px; height: 100px;'>",
+
+            didOpen: () => {
+              Swal.showLoading();
+              const span = Swal.getPopup().querySelector("span");
+              setTimeout(() => span.setAttribute("style","display:block; margin-top:20px; color:#2e8b1d"), 3000)
+              setTimeout(() => Swal.close, 7000)
+              //setskapstate(box)
+
+
+              setTimeout(() => {
+                setskapstate(box);
+                swalWithBootstrapButtons.fire({
+                  title: "Lucka nummer "+box+" är nu betald",
+                  icon: "success",
+                  showCancelButton: false,
+                  html: `
+                    Du kan nu använda kod <b>7701</b> för att öppna lucka `+box
+                })},
+              7000)
+            },
+        })
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire({
+        title: "Avbruten",
+        text: "Ingen transaktion genomförd",
+        icon: "error"
+      });
+    }
+})
+    }
   </script>
 
 

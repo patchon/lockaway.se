@@ -284,7 +284,7 @@ ul li.selected {
 
 /* Items inside the grid */
 .flex-item {
-  background-color: #333;
+  background-color: #91ab8a;
   /* Default dark background */
   border-radius: 4px;
   transition: background-color 0.3s ease;
@@ -293,6 +293,7 @@ ul li.selected {
   align-items: center;
   color: white;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .flex-item.small {
@@ -328,7 +329,7 @@ ul li.selected {
 }
 
 .flex-item.taken {
-  background-color: #FF6347;
+  background-color: #e3a69b;
   /* "Taken" state (red) */
 }
 
@@ -350,3 +351,27 @@ ul li.selected {
 .control-panel button:hover {
   background-color: #0056b3;
 }
+
+.input-tel {
+  height: 2rem;
+  padding: 10px;
+  margin: 10px
+}
+div:where(.swal2-icon).swal2-question {
+border : none
+}
+div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
+  background-color: #55b337
+}
+div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel) {
+  background-color: #cd8181
+}
+
+div:where(.swal2-container) button:where(.swal2-styled):not([disabled]) {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+div:where(.swal2-icon) {
+  border:none!important
+}
+
