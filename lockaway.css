@@ -322,7 +322,7 @@ ul li.selected {
 }
 
 .hide {
-  display: none;
+  display: none!important;
 }
 
 .cities {

@@ -20,8 +20,8 @@
   <div class="top-banner" id="top-banner">
     <div class="company-name"><a href="https://lockaway.se">LockAway</a></div>
     <div class=" menu">
-      <a class="button" href="#Om Oss">Om Oss</a>
-      <a class="button" href="#contact">Kontakt</a>
+      <a class="button" id="btnabout">Om Oss</a>
+      <a class="button" id="btncontact">Kontakt</a>
     </div>
   </div>
 
@@ -114,6 +114,44 @@
       <div id="9" class="flex-item small">9</div>
     </div>
   </div>
+
+  <!-- Content Section -->
+  <div id="about" class="content-section hide" style="padding-top:50px">
+    <div class="text">
+      <div>
+        <h2 style="font-size: medium;">OM OSS</h2>
+        <p>
+          Vi är två drivna tjejer från Linköping som nyligen startat vårat första UF-företag, LockAway AB.
+          Vi tillhandahåller tjänster inom säker förvaring.
+        </p>
+        <div style="text-align: center; padding-top: 50px;">
+          <div style="text-align: center;"> <img src="media/amelia.png" alt="Your Name" style="width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);"></div>
+            <p style="display: block; text-align: center; padding-bottom: 0px; font-weight: bold;">Amelia Sofia Söderberg</p>
+            <p style="display: block; text-align: center; padding-bottom: 0px; font-style: italic; font-size: 14px;"> Grundare och VD. </p>
+          </div>
+          <div style="text-align: center; padding-top: 40px;"> <img src="media/profile.png" alt="Your Name" style="width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);"></div>
+            <p style="display: block; text-align: center; padding-bottom: 0px; font-weight: bold;">Sara Jabber</p>
+            <p style="display: block; text-align: center; padding-bottom: 0px; font-style: italic; font-size: 14px;">Medgrundare</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Content Section -->
+  <div id="contact" class="content-section hide" style="padding-top:50px">
+    <div class="text">
+      <div>
+        <h2 style="font-size: medium;">OM OSS</h2>
+        <p>
+          Kontakta Jensen Education Linköping
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <!-- Footer -->
   <footer>
@@ -307,6 +345,24 @@
           document.getElementById('landing').classList.add('hide');
           document.getElementById('search').classList.remove('hide');;
 
+        });
+
+        // Add an event listener to the parent container
+        document.getElementById('btnabout').addEventListener('click', function () {
+          document.getElementById('contact').classList.add('hide');;
+          document.getElementById('search').classList.add('hide');
+          document.getElementById('landing').classList.add('hide');
+
+          document.getElementById('about').classList.remove('hide');
+        });
+
+                // Add an event listener to the parent container
+        document.getElementById('btncontact').addEventListener('click', function () {
+          document.getElementById('about').classList.add('hide');
+          document.getElementById('search').classList.add('hide');
+          document.getElementById('landing').classList.add('hide');
+
+          document.getElementById('contact').classList.remove('hide');;
         });
 
     document.getElementById('skap').addEventListener('click', function () {
