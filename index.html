@@ -363,7 +363,7 @@
 
         swalStyled
           .fire({
-            title: `Betala för lucka <b><u>${box}</u></b>`,
+            title: `Betala för lucka <u>${box}</u>`,
             icon: "question",
             iconHtml: "<img src='media/swish.png' style='scale:15%'>",
             showCancelButton: true,
@@ -385,18 +385,6 @@
                 confirmBtn.disabled = !hasValue;
                 confirmBtn.style.opacity = hasValue ? "1" : "0.5";
               });
-
-              // Scroll input into view when mobile keyboard opens
-              //input.addEventListener("focus", () => {
-              //  setTimeout(
-              //    () =>
-              //      input.scrollIntoView({
-              //        behavior: "smooth",
-              //        block: "center",
-              //      }),
-              //    300,
-              //  );
-              //});
             },
             preConfirm: () => {
               const phone = Swal.getPopup()
@@ -431,10 +419,10 @@
                     setSkapState(box);
                     const code = Math.floor(1000 + Math.random() * 9000);
                     swalStyled.fire({
-                      title: `Lucka nummer <b><u>${box}</u></b> är nu betald`,
+                      title: `Lucka nummer <u>${box}</u> är nu betald`,
                       icon: "success",
                       showCancelButton: false,
-                      html: `Du kan nu använda kod <b>${code}</b> för att öppna lucka <b><u>${box}</u></b>`,
+                      html: `Du kan nu använda kod <b>${code}</b> för att öppna lucka <u>${box}</u>`,
                     });
                   }, 7000);
                 },

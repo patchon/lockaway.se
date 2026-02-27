@@ -336,6 +336,17 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
   display: none;
 }
 
+.swal2-title {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.swal2-html-container {
+  padding-top: 5px;
+  font-size: 0.95rem;
+  font-weight: 400 !important;
+}
+
 /* Push payment dialog up on mobile so keyboard doesn't cover input */
 @media (max-width: 768px) {
   .swal2-popup.swal-top {
