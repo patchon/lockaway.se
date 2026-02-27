@@ -384,3 +384,13 @@ footer {
   text-align: center;
   padding: 1rem;
 }
+
+footer span {
+  cursor: pointer;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+footer span:hover {
+  text-decoration: underline;
+}

@@ -130,13 +130,13 @@
     </div>
 
     <!-- Footer -->
-    <footer id="footer" style="cursor: pointer">
-      <p>LockAway UF</p>
+    <footer id="footer">
+      <span id="footer-text">LockAway UF</span>●
+      <span id="contact-link">Kontakta Oss</span>
     </footer>
 
     <script>
       // --- Real viewport height fix for mobile browsers ---
-      // 100vh on mobile includes the address bar, window.innerHeight doesn't
       function setRealVH() {
         document.documentElement.style.setProperty(
           "--app-height",
@@ -206,12 +206,24 @@
         const gapPx = 10;
         const itemWidth = `calc(${100 / cols}% - ${(gapPx * (cols - 1)) / cols}px)`;
 
-        // Fixed item height — smaller when there are more rows
+        // Dynamic item height — use wrapper height on mobile, fixed on desktop
         const rows = Math.ceil(count / cols);
-        const itemHeight = rows <= 2 ? "120px" : rows <= 3 ? "90px" : "70px";
+        const isMobile = window.innerWidth <= 768;
+        let itemHeight;
+        if (isMobile) {
+          // Fill available wrapper height evenly across rows
+          itemHeight = `calc((100% - ${gapPx * (rows - 1)}px) / ${rows})`;
+        } else {
+          itemHeight = rows <= 2 ? "120px" : rows <= 3 ? "90px" : "70px";
+        }
 
-        // Scale font size down for larger grids
-        const fontSize = count <= 4 ? "4rem" : count <= 9 ? "2.5rem" : "2rem";
+        // Scale font size down for larger grids and smaller screens
+        let fontSize;
+        if (isMobile) {
+          fontSize = count <= 4 ? "2.5rem" : count <= 9 ? "1.8rem" : "1.4rem";
+        } else {
+          fontSize = count <= 4 ? "4rem" : count <= 9 ? "2.5rem" : "2rem";
+        }
 
         for (let i = 1; i <= count; i++) {
           const div = document.createElement("div");
@@ -339,13 +351,25 @@
       });
 
       // --- Footer → back to landing ---
-      document.getElementById("footer").addEventListener("click", function () {
-        document.getElementById("search").classList.add("hide");
-        document.getElementById("about").classList.add("hide");
-        document.getElementById("contact").classList.add("hide");
-        batteryEl.classList.remove("visible");
-        document.getElementById("landing").classList.remove("hide");
-      });
+      document
+        .getElementById("footer-text")
+        .addEventListener("click", function () {
+          document.getElementById("search").classList.add("hide");
+          document.getElementById("about").classList.add("hide");
+          document.getElementById("contact").classList.add("hide");
+          batteryEl.classList.remove("visible");
+          document.getElementById("landing").classList.remove("hide");
+        });
+
+      document
+        .getElementById("contact-link")
+        .addEventListener("click", function () {
+          document.getElementById("search").classList.add("hide");
+          document.getElementById("about").classList.remove("hide");
+          document.getElementById("contact").classList.add("hide");
+          batteryEl.classList.remove("visible");
+          document.getElementById("landing").classList.add("hide");
+        });
 
       // --- Payment flow ---
       function handlePay(box) {
@@ -385,19 +409,8 @@
                 confirmBtn.disabled = !hasValue;
                 confirmBtn.style.opacity = hasValue ? "1" : "0.5";
               });
-
-              // Scroll input into view when mobile keyboard opens
-              // input.addEventListener("focus", () => {
-              //   setTimeout(
-              //     () =>
-              //       input.scrollIntoView({
-              //         behavior: "smooth",
-              //         block: "center",
-              //       }),
-              //     300,
-              //   );
-              // });
             },
+            // Scroll input into view when mobile keyboard opens
             preConfirm: () => {
               const phone = Swal.getPopup()
                 .querySelector("#phone")
