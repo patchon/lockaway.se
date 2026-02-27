@@ -1,444 +1,373 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="lockaway.css" />
+    <link rel="stylesheet" href="mobile.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Välkommen till LockAway</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="lockaway.css">
-  <link rel="stylesheet" href="mobile.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <body>
+    <!-- Video Section -->
+    <div id="landing">
+      <div class="videosection">
+        <video autoplay muted loop playsinline>
+          <source src="media/bg.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
-  <title>Välkommen till LockAway</title>
-  <style>
-
-  </style>
-</head>
-
-<body>
-  <!-- Top Banner -->
-  <div class="top-banner" id="top-banner">
-    <div class="company-name"><a href="https://lockaway.se">LockAway</a></div>
-    <div class=" menu">
-      <a class="button" id="btnabout">Om Oss</a>
-      <a class="button" id="btncontact">Kontakt</a>
-    </div>
-  </div>
-
-  <!-- Video Section -->
-  <div id="landing">
-    <div class="videosection">
-      <video autoplay muted loop playsinline style="width:100%">
-        <source src=" media/bg.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-
-      <!-- Roll-Out Text -->
-      <div class="text-overlay">
-        <h1>Keep it safe,<br>Lock it Away!</h1>
-        <span class="content">
-          Ta med dig allt till stranden, men lämna oron hemma!
-        </span><br>
-
-        <div class="button fade-in">
-          <a style="font-weight: normal;" id="next">
-            Hyr ett skåp
-          </a>
+        <div class="text-overlay">
+          <span>Keep it Safe,<br />Lock it Away!</span>
+          <span class="content">
+            Ta med dig allt till stranden, men lämna oron hemma! </span
+          ><br />
+          <div class="button fade-in">
+            <a id="next">Hyr en lucka</a>
+          </div>
         </div>
+      </div>
 
+      <!-- About Section -->
+      <div class="content-section">
+        <div class="text">
+          <div>
+            <h2>OM VÅRAT FÖRETAG</h2>
+            <h1>Vi bidrar med en säker plats att förvara dina värdesaker</h1>
+            <p>
+              Personer i alla åldrar som befinner sig på olika offentliga
+              badplatser och stränder behöver en säker plats att låsa in sina
+              värdesaker på. Vår produkt utesluter ett stressmoment och låter
+              kunden fokusera på sin egen njutning.
+            </p>
+          </div>
+        </div>
+        <div class="image">
+          <img src="media/strand.webp" alt="Strand med förvaringsskåp" />
+        </div>
       </div>
     </div>
 
-    <!-- Content Section -->
-    <div class="content-section">
+    <!-- Search / Locker Section -->
+    <div id="search" class="content-section hide">
+      <div class="text cities">
+        <div>
+          <h1>Välj din badplats</h1>
+          <div class="search-container">
+            <input
+              type="text"
+              id="citySearch"
+              placeholder="Sök efter ett skåp nära dig"
+            />
+          </div>
+          <ul id="cityList">
+            <li id="c1">Saab Arena - UF-mässa</li>
+            <li id="c2">Strandbadet Linköping</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="map" class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed/v1/place?q=Linköping+Sverige&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+        >
+        </iframe>
+      </div>
+
+      <div id="skap" class="wrapper hide"></div>
+    </div>
+
+    <div id="battery" class="battery-info">
+      <span class="battery-label">
+        <img src="battery-icon.svg" class="battery-svg" />
+        <span>Skåpet inkluderar laddningsmöjligheter</span>
+      </span>
+    </div>
+
+    <!-- About Us Section -->
+    <div id="about" class="content-section hide about-section">
       <div class="text">
         <div>
-          <h2 style="font-size: medium;">OM VÅRAT FÖRETAG</h2>
-          <h1>
-            Vi bidrar med en säker plats att förvara dina värdesaker
-          </h1>
+          <h2>OM OSS</h2>
           <p>
-            Personer i alla åldrar som befinner sig på olika offentliga badplatser och stränder behöver en säker plats
-            att
-            låsa in sina värdesaker på. Vår produkt utesluter ett stressmoment och låter kunden fokusera på sin egen
-            njutning.
+            Vi är två drivna tjejer från Linköping som nyligen startat vårat
+            första UF-företag, LockAway AB. Vi tillhandahåller tjänster inom
+            säker förvaring.
           </p>
-        </div>
-      </div>
-      <div class="image">
-        <img src="media/strand.webp" alt="strand">
-      </div>
-    </div>
-  </div>
-
-  <div id="search" class="content-section hide">
-    <div class="text cities">
-      <div>
-        <h1>
-          Hitta Ditt Skåp
-        </h1>
-        <div class="search-container">
-          <input type="text" id="citySearch" placeholder="Sök efter ett skåp nära dig">
-        </div>
-        <ul id="cityList">
-          <li id="c1">Brokind, Brokindsbadet</li>
-          <li id="c2">Linköping, Strandbadet</li>
-          <li id="c3">Linköping, Sturefors</li>
-          <li id="c4">Linköping, Bankekind</li>
-          <li id="c5">Linköping, Hjulsbro</li>
-          <li id="c6">Linköping, Sandvik</li>
-          <li id="c7">Norrköping, Ågelsjön</li>
-          <li id="c8">Norrköping, Ensjön</li>
-          <li id="c9">Norrköping, Kvarsebobadet</li>
-          <li id="c10">Norrköping, Sörsjön</li>
-        </ul>
-      </div>
-    </div>
-
-    <div style="padding-top: 8%;" id="map"><iframe
-        src="https://www.google.com/maps/embed/v1/place?q=Linköping+Sverige&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
-    </div>
-
-    <div id="skap" class="wrapper hide">
-      <!-- Row 1 -->
-      <div id="1" class="flex-item small">1</div>
-      <div id="2" class="flex-item medium">2</div>
-      <div id="3" class="flex-item small">3</div>
-      <!-- Row 2 -->
-      <div id="4" class="flex-item small">4</div>
-      <div id="5" class="flex-item small">5</div>
-      <div id="6" class="flex-item medium">6</div>
-      <!-- Row 3 -->
-      <div id="7" class="flex-item large">7</div>
-      <div id="8" class="flex-item small">8</div>
-      <div id="9" class="flex-item small">9</div>
-    </div>
-  </div>
-
-  <!-- Content Section -->
-  <div id="about" class="content-section hide" style="padding-top:50px">
-    <div class="text">
-      <div>
-        <h2 style="font-size: medium;">OM OSS</h2>
-        <p>
-          Vi är två drivna tjejer från Linköping som nyligen startat vårat första UF-företag, LockAway AB.
-          Vi tillhandahåller tjänster inom säker förvaring.
-        </p>
-        <div style="text-align: center; padding-top: 50px;">
-          <div style="text-align: center;"> <img src="media/amelia.png" alt="Your Name" style="width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);"></div>
-            <p style="display: block; text-align: center; padding-bottom: 0px; font-weight: bold;">Amelia Sofia Söderberg</p>
-            <p style="display: block; text-align: center; padding-bottom: 0px; font-style: italic; font-size: 14px;"> Grundare och VD. </p>
+          <div class="team-member">
+            <img
+              src="media/amelia.png"
+              alt="Amelia Sofia Söderberg"
+              class="team-photo"
+            />
+            <p class="team-name">Amelia Sofia Söderberg</p>
+            <p class="team-role">Grundare och VD</p>
           </div>
-          <div style="text-align: center; padding-top: 40px;"> <img src="media/profile.png" alt="Your Name" style="width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);"></div>
-            <p style="display: block; text-align: center; padding-bottom: 0px; font-weight: bold;">Sara Jabber</p>
-            <p style="display: block; text-align: center; padding-bottom: 0px; font-style: italic; font-size: 14px;">Medgrundare</p>
+          <div class="team-member">
+            <img src="media/profile.png" alt="Sara Jabber" class="team-photo" />
+            <p class="team-name">Sara Jabber</p>
+            <p class="team-role">Medgrundare</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-  <!-- Content Section -->
-  <div id="contact" class="content-section hide" style="padding-top:50px">
-    <div class="text">
-      <div>
-        <h2 style="font-size: medium;">OM OSS</h2>
-        <p>
-          Kontakta Jensen Education Linköping
-        </p>
+    <!-- Contact Section -->
+    <div id="contact" class="content-section hide contact-section">
+      <div class="text">
+        <div>
+          <h2>KONTAKT</h2>
+          <p>Kontakta Jensen Education Linköping</p>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
+    <!-- Footer -->
+    <footer>
+      <p>LockAway UF</p>
+    </footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>LockAway AB</p>
-  </footer>
-
-  <script>
-
-    document.addEventListener('DOMContentLoaded', function() {
-      randomizeStates();
-    }, false);
-
-    // Select the randomize button and all flex items
-    const flexItems = document.querySelectorAll('.flex-item');
-
-    let skap_states = [];
-
-
-    // Function to randomly assign "free" or "taken" state
-    function randomizeStates() {
-      for (let i = 0; i <= 10; i++) {
-        str=""
-        for (let i = 0; i < 9; i++) {
-          if (Math.random() < 0.5) {
-            str+="1,"
-          } else {
-            str+="0,"
-          }
-        }
-        str = str.slice(0, -1);
-
-        skap_states[i] = str
-      }
-      console.log(skap_states)
-
-    }
-
-    function displaySkap(city) {
-
-      city = city.substring(1);
-      arr = skap_states[city].split(',');
-      console.log(city)
-
-      flexItems.forEach(item => {
-        console.log(arr[item.id-1])
-
-        if (arr[item.id-1] == 1){
-          console.log("green")
-          item.classList.add('taken');
-        } else {
-          console.log("red")
-
-          item.classList.remove('taken');
-        }
-      });
-    }
-
-    function setskapstate(skapId){
-      city = document.querySelector('li.selected');
-      console.log(city.id)
-      console.log(skapId)
-      id = skapId-1;
-
-      city = city.id.substring(1);
-      arr = skap_states[city].split(',');
-      console.log("--"+arr[id])
-
-      if (arr[id] == 0){
-        arr[id] = 1
-        console.log("skap was green")
-      }else{
-        arr[id] = 0
-        console.log("skap was red")
-      }
-
-      //if (arr[id] == 1){
-
-      //}
-
-     // arr[id] = arr[id] === 0 ? 1 : 0;
-
-      console.log("before => ",skap_states[city])
-
-      str = arr.join(",")
-      console.log("after  => ",str)
-
-      skap_states[city] = str
-      displaySkap("c"+city)
-    }
- //     console.log(skap_states)
-
-//      flexItems.forEach(item => {
-//        const isTaken = Math.random() < 0.5; // 50% chance
-//        if (isTaken) {
-//          item.classList.add('taken');
-//          //item.textContent = 'Taken'; // Update text content
-//        } else {
-//          item.classList.remove('taken');
-//          //item.textContent = 'Free'; // Update text content
-//        }
-//      });
-  //  }
-
-
-
-    const top_banner = document.getElementById('top-banner');
-
-    // Function to toggle top banner visibility based on scroll position
-    const toggleTopBanner = () => {
-      if (window.scrollY === 0) {
-        top_banner.classList.remove('hidden');
-      } else {
-        top_banner.classList.add('hidden');
-      }
-    };
-
-    // Check scroll position on page load
-    window.addEventListener('load', toggleTopBanner);
-
-    // Toggle banner on scroll
-    window.addEventListener('scroll', toggleTopBanner);
-
-    // Select the search input and city list
-    const searchInput = document.getElementById('citySearch');
-    const cityList = document.getElementById('cityList');
-    const map = document.getElementById('map');
-
-    const skap = document.getElementById('skap');
-    const rando = document.getElementById('rand');
-
-
-    // Add event listener for input
-    searchInput.addEventListener('input', () => {
-      const filter = searchInput.value.toLowerCase();
-      const cities = cityList.getElementsByTagName('li');
-
-      // Loop through the list and filter items
-      Array.from(cities).forEach(city => {
-        const text = city.textContent.toLowerCase();
-        if (text.includes(filter)) {
-          city.style.display = ''; // Show the city
-        } else {
-          city.style.display = 'none'; // Hide the city
-        }
-      });
-    });
-
-    // Add event listener for selecting or deselecting a city
-    cityList.addEventListener('click', (event) => {
-      const clickedCity = event.target;
-
-      // Ensure only list items are clickable
-      if (clickedCity.tagName === 'LI') {
-        // Check if the clicked city is already selected
-        if (clickedCity.classList.contains('selected')) {
-          // If selected, deselect it
-          clickedCity.classList.remove('selected');
-          map.classList.remove('hide');
-          skap.classList.add('hide');
-
-        } else {
-          // Otherwise, deselect any other selected city
-          Array.from(cityList.getElementsByTagName('li')).forEach(city => {
-            city.classList.remove('selected');
-          });
-
-          // Select the clicked city
-          clickedCity.classList.add('selected');
-          map.classList.add('hide');
-          skap.classList.remove('hide');
-          //rando.classList.remove('hide');
-          //randomizeStates()
-          //console.log(event.target.id)
-          displaySkap(event.target.id)
-        }
-      }
-    });
-
-    // Add an event listener to the parent container
-    skap.addEventListener('click', (event) => {
-
-      if (event.target.classList.contains('taken')){
-        return
-      }
-      handlepay(event.target.id)
-      //setskapstate(event.target.id)
-    });
-
-        // Add an event listener to the parent container
-        document.getElementById('next').addEventListener('click', function () {
-          document.getElementById('landing').classList.add('hide');
-          document.getElementById('search').classList.remove('hide');;
-
-        });
-
-        // Add an event listener to the parent container
-        document.getElementById('btnabout').addEventListener('click', function () {
-          document.getElementById('contact').classList.add('hide');;
-          document.getElementById('search').classList.add('hide');
-          document.getElementById('landing').classList.add('hide');
-
-          document.getElementById('about').classList.remove('hide');
-        });
-
-                // Add an event listener to the parent container
-        document.getElementById('btncontact').addEventListener('click', function () {
-          document.getElementById('about').classList.add('hide');
-          document.getElementById('search').classList.add('hide');
-          document.getElementById('landing').classList.add('hide');
-
-          document.getElementById('contact').classList.remove('hide');;
-        });
-
-    document.getElementById('skap').addEventListener('click', function () {
-      const videoSection = document.getElementById('landing');
-      videoSection.classList.add('hide');
-
-      const search = document.getElementById('search');
-      search.classList.remove('hide');
-
-    });
-
-    function handlepay(box){
-
-      const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-          confirmButton: "btn btn-success",
-          cancelButton: "btn btn-danger"
+    <script>
+      // --- City Configuration ---
+      // Define each city's locker count and which lockers have battery charging
+      const cityConfig = {
+        c1: { name: "Saab Arena - UF-mässa", hatches: 4, batteryHatches: [4] },
+        c2: {
+          name: "Strandbadet Linköping",
+          hatches: 12,
+          batteryHatches: [6, 12],
         },
-        buttonsStyling: true
+        // Add more cities here:
+        // c3: { name: 'Ribersborg Malmö', hatches: 8, batteryHatches: [8] },
+      };
+
+      // --- State ---
+      const searchInput = document.getElementById("citySearch");
+      const cityList = document.getElementById("cityList");
+      const mapEl = document.getElementById("map");
+      const skapEl = document.getElementById("skap");
+      const batteryEl = document.getElementById("battery");
+      const skåpStates = {};
+
+      // --- Init ---
+      document.addEventListener("DOMContentLoaded", function () {
+        randomizeStates();
       });
 
-      swalWithBootstrapButtons.fire({
-        title: "Betala för lucka"+box,
-        icon: "question",
-        iconHtml: "<img src=media/swish.png style='scale:15%''>",
-        showCancelButton: true,
-        confirmButtonText: "Betala",
-        cancelButtonText: "Avbryt",
-        reverseButtons: true,
-        html: `
-          <label for="phone">Telefonnummer</label> <input class="input-tel" type=number id="phone">
-        `,
-      }).then((result) => {
-        if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire({
-            title: "",
-            html: "<div style='font-weight: bold;'>Väntar på godkännande från BankID</div><span style='display: none; '>Användaren har godkänt.</span>",
-            timer: 112000,
-            timerProgressBar: true,
-            iconHtml: "<img src=media/bankid.svg style='width: 100px; height: 100px;'>",
+      // Generate random locker states per city based on its hatch count
+      function randomizeStates() {
+        for (const [cityId, config] of Object.entries(cityConfig)) {
+          const bits = [];
+          for (let j = 0; j < config.hatches; j++) {
+            bits.push(Math.random() < 0.5 ? "1" : "0");
+          }
+          skåpStates[cityId] = bits;
+        }
+      }
 
-            didOpen: () => {
-              Swal.showLoading();
-              const span = Swal.getPopup().querySelector("span");
-              setTimeout(() => span.setAttribute("style","display:block; margin-top:20px; color:#2e8b1d"), 3000)
-              setTimeout(() => Swal.close, 7000)
-              //setskapstate(box)
+      // Build locker grid HTML for a city
+      function buildLockers(cityId) {
+        const config = cityConfig[cityId];
+        if (!config) return;
 
+        skapEl.innerHTML = "";
+        const hasBattery =
+          config.batteryHatches && config.batteryHatches.length > 0;
+        const count = config.hatches;
 
-              setTimeout(() => {
-                setskapstate(box);
-                swalWithBootstrapButtons.fire({
-                  title: "Lucka nummer "+box+" är nu betald",
-                  icon: "success",
-                  showCancelButton: false,
-                  html: `
-                    Du kan nu använda kod <b>7701</b> för att öppna lucka `+box
-                })},
-              7000)
-            },
-        })
-    } else if (
-      /* Read more about handling dismissals below */
-      result.dismiss === Swal.DismissReason.cancel
-    ) {
-      swalWithBootstrapButtons.fire({
-        title: "Avbruten",
-        text: "Ingen transaktion genomförd",
-        icon: "error"
+        // Calculate columns: 2 for ≤4, 3 for ≤9, 4 for ≤16, max 4
+        let cols = 2;
+        if (count > 4) cols = 3;
+        if (count > 9) cols = 4;
+
+        const gapPx = 10;
+        const itemWidth = `calc(${100 / cols}% - ${(gapPx * (cols - 1)) / cols}px)`;
+
+        // Fixed item height — smaller when there are more rows
+        const rows = Math.ceil(count / cols);
+        const itemHeight = rows <= 2 ? "120px" : rows <= 3 ? "90px" : "70px";
+
+        // Scale font size down for larger grids
+        const fontSize = count <= 4 ? "4rem" : count <= 9 ? "2.5rem" : "2rem";
+
+        for (let i = 1; i <= count; i++) {
+          const div = document.createElement("div");
+          div.id = String(i);
+          div.className = "flex-item";
+          div.textContent = i;
+          div.style.flex = `0 0 ${itemWidth}`;
+          div.style.height = itemHeight;
+          div.style.fontSize = fontSize;
+
+          if (config.batteryHatches.includes(i)) {
+            const img = document.createElement("img");
+            img.src = "battery-icon.svg";
+            img.className = "battery-svg battery-svg-fixed";
+            // Scale icon size and position based on grid density
+            if (count <= 4) {
+              img.style.width = "20px";
+              img.style.bottom = "10px";
+              img.style.right = "10px";
+            } else if (count <= 9) {
+              img.style.width = "14px";
+              img.style.bottom = "6px";
+              img.style.right = "6px";
+            } else {
+              img.style.width = "11px";
+              img.style.bottom = "4px";
+              img.style.right = "4px";
+            }
+            div.appendChild(img);
+          }
+
+          skapEl.appendChild(div);
+        }
+
+        // Show/hide battery info based on whether this city has any charging hatches
+        if (hasBattery) {
+          batteryEl.classList.add("visible");
+        } else {
+          batteryEl.classList.remove("visible");
+        }
+      }
+
+      // Show locker availability for a city
+      function displaySkap(cityId) {
+        const arr = skåpStates[cityId];
+        if (!arr) return;
+
+        buildLockers(cityId);
+
+        const flexItems = skapEl.querySelectorAll(".flex-item");
+        flexItems.forEach((item) => {
+          if (arr[item.id - 1] === "1") {
+            item.classList.add("taken");
+          }
+        });
+      }
+
+      // Toggle a single locker's state
+      function setSkapState(skapId) {
+        const selectedCity = document.querySelector("li.selected");
+        const cityId = selectedCity.id;
+        const idx = skapId - 1;
+
+        skåpStates[cityId][idx] = skåpStates[cityId][idx] === "0" ? "1" : "0";
+        displaySkap(cityId);
+      }
+
+      // --- City search filter ---
+      searchInput.addEventListener("input", () => {
+        const filter = searchInput.value.toLowerCase();
+        const cities = cityList.getElementsByTagName("li");
+
+        Array.from(cities).forEach((city) => {
+          city.style.display = city.textContent.toLowerCase().includes(filter)
+            ? ""
+            : "none";
+        });
       });
-    }
-})
-    }
-  </script>
 
+      // --- City selection ---
+      cityList.addEventListener("click", (event) => {
+        const clickedCity = event.target;
+        if (clickedCity.tagName !== "LI") return;
 
-</body>
+        if (clickedCity.classList.contains("selected")) {
+          clickedCity.classList.remove("selected");
+          mapEl.classList.remove("hide");
+          skapEl.classList.add("hide");
+          batteryEl.classList.remove("visible");
+        } else {
+          Array.from(cityList.getElementsByTagName("li")).forEach((city) => {
+            city.classList.remove("selected");
+          });
+          clickedCity.classList.add("selected");
+          mapEl.classList.add("hide");
+          skapEl.classList.remove("hide");
+          displaySkap(clickedCity.id);
+        }
+      });
 
+      // --- Locker click → payment ---
+      skapEl.addEventListener("click", (event) => {
+        const item = event.target.closest(".flex-item");
+        if (!item || item.classList.contains("taken")) return;
+        handlePay(item.id);
+      });
+
+      // --- Navigate to search ---
+      document.getElementById("next").addEventListener("click", function () {
+        document.getElementById("landing").classList.add("hide");
+        document.getElementById("search").classList.remove("hide");
+      });
+
+      // --- Payment flow ---
+      function handlePay(box) {
+        const swalStyled = Swal.mixin({
+          customClass: {
+            confirmButton: "btn btn-success",
+            cancelButton: "btn btn-danger",
+          },
+          buttonsStyling: true,
+        });
+
+        swalStyled
+          .fire({
+            title: `Betala för lucka <u>${box}</u>`,
+            icon: "question",
+            iconHtml: "<img src='media/swish.png' style='scale:15%'>",
+            showCancelButton: true,
+            confirmButtonText: "Betala",
+            cancelButtonText: "Avbryt",
+            reverseButtons: true,
+            html: `<label for="phone">Telefonnummer</label>
+               <input class="input-tel" type="number" id="phone" autocomplete="off">`,
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              swalStyled.fire({
+                title: "",
+                html: "<div style='font-weight:bold;'>Väntar på godkännande från BankID</div><span class='bankid-status'>Användaren har godkänt.</span>",
+                timer: 12000,
+                timerProgressBar: true,
+                iconHtml:
+                  "<img src='media/bankid.svg' style='width:100px;height:100px;'>",
+                didOpen: () => {
+                  Swal.showLoading();
+                  const span = Swal.getPopup().querySelector(".bankid-status");
+                  setTimeout(() => {
+                    span.style.display = "block";
+                    span.style.marginTop = "20px";
+                    span.style.color = "#2e8b1d";
+                  }, 3000);
+                  setTimeout(() => {
+                    setSkapState(box);
+                    swalStyled.fire({
+                      title: `Lucka nummer <u>${box}</u> är nu betald`,
+                      icon: "success",
+                      showCancelButton: false,
+                      html: `Du kan nu använda kod <b>7701</b> för att öppna lucka <b><u>${box}</u></b>`,
+                    });
+                  }, 7000);
+                },
+              });
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+              swalStyled.fire({
+                title: "Avbruten",
+                text: "Ingen transaktion genomförd",
+                icon: "error",
+              });
+            }
+          });
+      }
+    </script>
+  </body>
 </html>
