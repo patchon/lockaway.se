@@ -136,15 +136,17 @@
 
     <script>
       // --- Real viewport height fix for mobile browsers ---
-      // 100vh on mobile includes the address bar, window.innerHeight doesn't
+      // Only set on load and orientation change — NOT on resize,
+      // because keyboard open/close triggers resize and causes flicker
       function setRealVH() {
         document.documentElement.style.setProperty(
           "--app-height",
           window.innerHeight + "px",
         );
       }
-      window.addEventListener("resize", setRealVH);
-      window.addEventListener("orientationchange", setRealVH);
+      window.addEventListener("orientationchange", () =>
+        setTimeout(setRealVH, 100),
+      );
       setRealVH();
 
       // --- City Configuration ---
@@ -385,6 +387,18 @@
                 confirmBtn.disabled = !hasValue;
                 confirmBtn.style.opacity = hasValue ? "1" : "0.5";
               });
+
+              // Scroll input into view when mobile keyboard opens
+              // input.addEventListener("focus", () => {
+              //   setTimeout(
+              //     () =>
+              //       input.scrollIntoView({
+              //         behavior: "smooth",
+              //         block: "center",
+              //       }),
+              //     300,
+              //   );
+              // });
             },
             preConfirm: () => {
               const phone = Swal.getPopup()
