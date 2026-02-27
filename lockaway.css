@@ -232,14 +232,19 @@ iframe {
   font-size: 4rem;
 }
 
-.flex-item:hover {
-  background-color: #666;
+.flex-item:hover,
+.flex-item.active {
+  background-color: #5aa8e0;
 }
 
 .flex-item.taken {
   background-color: #9e9e9ec2;
   color: #ffffff47;
   cursor: default;
+}
+
+.flex-item.taken:hover {
+  background-color: #9e9e9ec2;
 }
 
 /* ---- Battery icon ---- */
@@ -318,15 +323,18 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel) {
   background-color: #cd8181;
 }
 
-div:where(.swal2-container) button:where(.swal2-styled):not([disabled]) {
+div:where(.swal2-container) button:where(.swal2-styled) {
   padding-left: 40px;
   padding-right: 40px;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
+  min-width: 150px;
 }
 
 .bankid-status {
   display: none;
 }
-
 .swal2-title {
   font-size: 1.4rem;
   font-weight: 400;
@@ -334,7 +342,7 @@ div:where(.swal2-container) button:where(.swal2-styled):not([disabled]) {
 .swal2-html-container {
   padding-top: 5px;
   font-size: 0.95rem;
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 /* ---- Footer ---- */
 
