@@ -135,6 +135,18 @@
     </footer>
 
     <script>
+      // --- Real viewport height fix for mobile browsers ---
+      // 100vh on mobile includes the address bar, window.innerHeight doesn't
+      function setRealVH() {
+        document.documentElement.style.setProperty(
+          "--app-height",
+          window.innerHeight + "px",
+        );
+      }
+      window.addEventListener("resize", setRealVH);
+      window.addEventListener("orientationchange", setRealVH);
+      setRealVH();
+
       // --- City Configuration ---
       // Define each city's locker count and which lockers have battery charging
       const cityConfig = {

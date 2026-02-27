@@ -30,28 +30,20 @@
   .content-section {
     display: block;
     padding-top: 2px;
-    min-height: 94vh;
-  }
-
-  #search {
     min-height: auto;
-    flex: 1;
-  }
-
-  #about,
-  #contact {
-    min-height: auto;
-    flex: 1;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
   }
 
   #landing {
-    flex: 1;
+    min-height: var(--app-height, 100vh);
+  }
+
+  #search,
+  #about,
+  #contact {
+    min-height: auto;
+    max-height: var(--app-height, 100vh);
+    height: calc(var(--app-height, 100vh) - 50px);
+    box-sizing: border-box;
   }
 
   .content-section .image img {
@@ -75,7 +67,7 @@
 
   .wrapper {
     position: fixed;
-    bottom: 115px;
+    bottom: 100px;
     max-height: 45%;
     width: 95%;
     left: 3%;
