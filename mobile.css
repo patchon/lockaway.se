@@ -35,8 +35,23 @@
 
   #search {
     min-height: auto;
-    height: calc(100dvh - 50px);
-    overflow: hidden;
+    flex: 1;
+  }
+
+  #about,
+  #contact {
+    min-height: auto;
+    flex: 1;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #landing {
+    flex: 1;
   }
 
   .content-section .image img {
