@@ -136,17 +136,15 @@
 
     <script>
       // --- Real viewport height fix for mobile browsers ---
-      // Only set on load and orientation change — NOT on resize,
-      // because keyboard open/close triggers resize and causes flicker
+      // 100vh on mobile includes the address bar, window.innerHeight doesn't
       function setRealVH() {
         document.documentElement.style.setProperty(
           "--app-height",
           window.innerHeight + "px",
         );
       }
-      window.addEventListener("orientationchange", () =>
-        setTimeout(setRealVH, 100),
-      );
+      window.addEventListener("resize", setRealVH);
+      window.addEventListener("orientationchange", setRealVH);
       setRealVH();
 
       // --- City Configuration ---

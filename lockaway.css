@@ -346,6 +346,17 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
     transform: none !important;
   }
 
+  .swal2-title {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  .swal2-html-container {
+    padding-top: 5px;
+    font-size: 0.95rem;
+    font-weight: 400 !important;
+  }
+
   /* Lock everything when SweetAlert is open — prevents reflow on keyboard open */
   body.swal2-shown {
     height: 100% !important;
