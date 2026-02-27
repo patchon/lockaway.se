@@ -311,6 +311,19 @@
       document.getElementById("next").addEventListener("click", function () {
         document.getElementById("landing").classList.add("hide");
         document.getElementById("search").classList.remove("hide");
+
+        // Restore battery info if a city with charging hatches is still selected
+        const selectedCity = document.querySelector("li.selected");
+        if (selectedCity) {
+          const config = cityConfig[selectedCity.id];
+          if (
+            config &&
+            config.batteryHatches &&
+            config.batteryHatches.length > 0
+          ) {
+            batteryEl.classList.add("visible");
+          }
+        }
       });
 
       // --- Footer → back to landing ---
@@ -318,6 +331,7 @@
         document.getElementById("search").classList.add("hide");
         document.getElementById("about").classList.add("hide");
         document.getElementById("contact").classList.add("hide");
+        batteryEl.classList.remove("visible");
         document.getElementById("landing").classList.remove("hide");
       });
 
@@ -336,7 +350,7 @@
 
         swalStyled
           .fire({
-            title: `Betala för lucka <u>${box}</u>`,
+            title: `Betala för lucka <b><u>${box}</u></b>`,
             icon: "question",
             iconHtml: "<img src='media/swish.png' style='scale:15%'>",
             showCancelButton: true,
@@ -374,7 +388,7 @@
             if (result.isConfirmed) {
               swalStyled.fire({
                 title: "",
-                html: "<div>Väntar på godkännande från BankID</div><span class='bankid-status'>Användaren har godkänt.</span>",
+                html: "<div style='font-weight:bold;'>Väntar på godkännande från BankID</div><span class='bankid-status'>Användaren har godkänt.</span>",
                 timer: 12000,
                 timerProgressBar: true,
                 iconHtml:
@@ -392,10 +406,10 @@
                     setSkapState(box);
                     const code = Math.floor(1000 + Math.random() * 9000);
                     swalStyled.fire({
-                      title: `Lucka nummer <u>${box}</u> är nu betald`,
+                      title: `Lucka nummer <b><u>${box}</u></b> är nu betald`,
                       icon: "success",
                       showCancelButton: false,
-                      html: `Du kan nu använda kod <b>${code}</b> för att öppna lucka <u>${box}</u>`,
+                      html: `Du kan nu använda kod <b>${code}</b> för att öppna lucka <b><u>${box}</u></b>`,
                     });
                   }, 7000);
                 },
