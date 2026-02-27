@@ -42,7 +42,7 @@
   #contact {
     min-height: auto;
     max-height: var(--app-height, 100vh);
-    height: calc(var(--app-height, 100vh) - 50px);
+    height: calc(var(--app-height, 100vh) - 65px);
     box-sizing: border-box;
   }
 
@@ -76,8 +76,8 @@
 
   .battery-info {
     position: fixed;
-    bottom: 65px;
-    left: 3%;
+    bottom: 68px;
+    left: 1%;
   }
 
   .cities {

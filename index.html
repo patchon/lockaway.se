@@ -354,6 +354,7 @@
 
         const swalStyled = Swal.mixin({
           customClass: {
+            popup: "swal-top",
             confirmButton: "btn btn-success",
             cancelButton: "btn btn-danger",
           },
@@ -383,6 +384,18 @@
                 const hasValue = input.value.length >= 6;
                 confirmBtn.disabled = !hasValue;
                 confirmBtn.style.opacity = hasValue ? "1" : "0.5";
+              });
+
+              // Scroll input into view when mobile keyboard opens
+              input.addEventListener("focus", () => {
+                setTimeout(
+                  () =>
+                    input.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center",
+                    }),
+                  300,
+                );
               });
             },
             preConfirm: () => {
