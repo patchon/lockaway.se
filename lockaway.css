@@ -336,17 +336,6 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
   display: none;
 }
 
-.swal2-title {
-  font-size: 1.4rem;
-  font-weight: 400;
-}
-
-.swal2-html-container {
-  padding-top: 5px;
-  font-size: 0.95rem;
-  font-weight: 400 !important;
-}
-
 /* Push payment dialog up on mobile so keyboard doesn't cover input */
 @media (max-width: 768px) {
   .swal2-popup.swal-top {
@@ -355,6 +344,24 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
     left: 5%;
     max-width: 90%;
     transform: none !important;
+  }
+
+  /* Lock everything when SweetAlert is open — prevents reflow on keyboard open */
+  body.swal2-shown {
+    height: 100% !important;
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+  }
+
+  /* Disable SweetAlert container transitions during viewport changes */
+  .swal2-container {
+    transition: none !important;
+  }
+
+  .swal2-popup {
+    transition: none !important;
+    animation: none !important;
   }
 }
 
