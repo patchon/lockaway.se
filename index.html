@@ -387,16 +387,16 @@
               });
 
               // Scroll input into view when mobile keyboard opens
-              input.addEventListener("focus", () => {
-                setTimeout(
-                  () =>
-                    input.scrollIntoView({
-                      behavior: "smooth",
-                      block: "center",
-                    }),
-                  300,
-                );
-              });
+              //input.addEventListener("focus", () => {
+              //  setTimeout(
+              //    () =>
+              //      input.scrollIntoView({
+              //        behavior: "smooth",
+              //        block: "center",
+              //      }),
+              //    300,
+              //  );
+              //});
             },
             preConfirm: () => {
               const phone = Swal.getPopup()

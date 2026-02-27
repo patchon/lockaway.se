@@ -42,7 +42,7 @@
   #contact {
     min-height: auto;
     max-height: var(--app-height, 100vh);
-    height: calc(var(--app-height, 100vh) - 65px);
+    height: calc(var(--app-height, 100vh) - 63px);
     box-sizing: border-box;
   }
 

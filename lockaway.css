@@ -340,7 +340,7 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
 @media (max-width: 768px) {
   .swal2-popup.swal-top {
     position: fixed;
-    top: 2%;
+    top: 13%;
     left: 5%;
     max-width: 90%;
     transform: none !important;
