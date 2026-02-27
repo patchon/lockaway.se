@@ -35,7 +35,7 @@
 
   #search {
     min-height: auto;
-    height: calc(100vh - 50px);
+    height: calc(100dvh - 50px);
     overflow: hidden;
   }
 
