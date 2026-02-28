@@ -42,7 +42,7 @@
   #contact {
     min-height: auto;
     max-height: var(--app-height, 100vh);
-    height: calc(var(--app-height, 100vh) - 63px);
+    height: calc(var(--app-height, 100vh) - 50px);
     box-sizing: border-box;
   }
 
@@ -73,7 +73,7 @@
 
   .battery-info {
     position: fixed;
-    bottom: 48px;
+    bottom: 50px;
     left: 3%;
   }
 

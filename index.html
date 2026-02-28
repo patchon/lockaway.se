@@ -145,36 +145,53 @@
               target="_blank"
               class="contact-item"
             >
-              <svg
-                class="contact-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <rect x="2" y="2" width="20" height="20" rx="5" />
-                <circle cx="12" cy="12" r="5" />
-                <circle
-                  cx="17.5"
-                  cy="6.5"
-                  r="1.5"
-                  fill="currentColor"
-                  stroke="none"
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none">
+                <defs>
+                  <linearGradient
+                    id="ig-grad"
+                    x1="0%"
+                    y1="100%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" style="stop-color: #feda75" />
+                    <stop offset="25%" style="stop-color: #fa7e1e" />
+                    <stop offset="50%" style="stop-color: #d62976" />
+                    <stop offset="75%" style="stop-color: #962fbf" />
+                    <stop offset="100%" style="stop-color: #4f5bd5" />
+                  </linearGradient>
+                </defs>
+                <rect
+                  x="2"
+                  y="2"
+                  width="20"
+                  height="20"
+                  rx="5"
+                  stroke="url(#ig-grad)"
+                  stroke-width="1.5"
                 />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="5"
+                  stroke="url(#ig-grad)"
+                  stroke-width="1.5"
+                />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="url(#ig-grad)" />
               </svg>
-              <span>@lockawayuf</span>
+              <span>lockawayuf</span>
             </a>
             <a
               href="https://www.facebook.com/LockAwayUF"
               target="_blank"
               class="contact-item"
             >
-              <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="#1877F2">
                 <path
                   d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9v-2.89h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"
                 />
               </svg>
-              <span>@LockAway UF</span>
+              <span>LockAway UF</span>
             </a>
           </div>
         </div>
@@ -406,11 +423,11 @@
       document
         .getElementById("footer-text")
         .addEventListener("click", function () {
+          document.getElementById("landing").classList.remove("hide");
           document.getElementById("search").classList.add("hide");
           document.getElementById("about").classList.add("hide");
           document.getElementById("contact").classList.add("hide");
           batteryEl.classList.remove("visible");
-          document.getElementById("landing").classList.remove("hide");
         });
 
       document
