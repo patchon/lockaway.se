@@ -42,7 +42,7 @@
   #contact {
     min-height: auto;
     max-height: var(--app-height, 100vh);
-    height: calc(var(--app-height, 100vh) - 50px);
+    height: calc(var(--app-height, 100vh) - 63px);
     box-sizing: border-box;
   }
 
@@ -55,10 +55,6 @@
   .content-section .text {
     margin-right: 0;
     padding-bottom: 20px;
-  }
-
-  .content-section .text p {
-    padding-bottom: 30px;
   }
 
   #map {
@@ -111,6 +107,26 @@
     margin-bottom: 7px;
     padding: 5px 10px;
     margin-left: 5px;
+  }
+
+  .contact-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .contact-cards .team-photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .contact-links {
+    padding-top: 10px;
+  }
+
+  #contact {
+    overflow-y: auto;
   }
 }
 
