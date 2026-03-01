@@ -125,8 +125,10 @@
     padding-top: 10px;
   }
 
+  #about,
   #contact {
     overflow-y: auto;
+    padding-bottom: 0px !important;
   }
 }
 
