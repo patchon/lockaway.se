@@ -430,6 +430,19 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
   color: inherit;
 }
 
+/* ---- Promo Video ----
+
+.promo-video-section {
+  padding-top: 2rem;
+}*/
+
+.promo-video-section video {
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  border-radius: 8px;
+}
+
 /* ---- Footer ---- */
 
 footer {
